@@ -10,7 +10,8 @@ std::vector< char > foo(std::list< Human >& people)
 {
     std::vector< char > retval(people.size());
 
-    // Twoja implementacja tutaj
-
+    std::transform(people.begin(), people.end(), retval.rbegin(), [](Human& h) {
+        h.birthday(); return h.isMonster() ? 'n' : 'y';
+});
     return retval;
 }
